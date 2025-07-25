@@ -1,11 +1,10 @@
 "use client";
-
 import { SignedIn, UserButton, useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import MainPage from "./MainPage/MainPage";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -13,7 +12,7 @@ export default function Home() {
   const { isSignedIn, user } = useUser();
 
   useEffect(() => {
-    const interval = setInterval(() => setLoading(false), 4000);
+    const interval = setInterval(() => setLoading(false), 2000);
     return () => clearInterval(interval);
   });
 
@@ -61,31 +60,7 @@ export default function Home() {
               </div>
 
               {/* Main content */}
-              <div className="w-4/5 h-full text-black bg-gray-100 p-6 overflow-auto">
-                <div>
-                  <Image width={1200} height={100} src={"/hero.png"} alt="background"></Image>
-                </div>
-                <div>
-                  <button className="bg-orange-400">
-                    <div>
-                      New Meeting
-                    </div>
-                  </button>
-
-                  <button className="bg-blue-500">
-                    <div>Schedule Meeting</div>
-                  </button>
-
-                  <button className="bg-purple-500">
-                    <div>View Recordings</div>
-                  </button>
-
-                  <button className="bg-yellow-500">
-                    <div>Join Meeting</div>
-                  </button>
-                  
-                </div>
-              </div>
+              <MainPage/>
             </div>
           </div>
         </div>

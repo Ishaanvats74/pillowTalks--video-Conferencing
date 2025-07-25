@@ -17,7 +17,7 @@ export default function LoadingScreen() {
       setMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
     }, 2500);
     return () => clearInterval(interval);
-  }, []);
+  }, [messages.length]);
 
   return (
     <div className="flex items-center justify-center h-screen bg-black text-white flex-col gap-6">
