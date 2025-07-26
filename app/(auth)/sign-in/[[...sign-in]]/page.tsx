@@ -16,7 +16,7 @@ export default function SignInPage() {
     <SignIn.Root>
       <SignIn.Step
         name="start"
-        className="min-h-screen flex flex-col justify-center items-center "
+        className="h-screen flex flex-col justify-center items-center"
       >
         <div className=" p-6 rounded-xl shadow-xl shadow-black/15 space-y-10 ">
             <div>

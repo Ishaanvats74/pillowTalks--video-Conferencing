@@ -1,12 +1,15 @@
 "use client";
 
+
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-const MainPage = () => {
+const Page = () => {
   const [Hour,setHour] =useState("");
   const [date , setDate] = useState("");
   const [Weekend,setWeekend] = useState("");
+
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,17 +20,17 @@ const MainPage = () => {
       setHour(hour)
       setDate(day)
       setWeekend(weekend)
-    }, 1000);
+    }, 10000);
     
     return () => clearInterval(interval);
   },);
-
+  
   return (
-    <div className="w-4/5 h-full text-white bg-gray-100 p-6 overflow-auto space-y-10">
-      <div className="relative w-full h-[45vh]">
+    <div className="space-y-10">
+      <div className="relative w-full h-[45vh] ">
         <Image
           fill
-          className="object-cover w-full h-full "
+          className="object-cover w-full h-full rounded-2xl"
           src={"/hero.png"}
           alt="background"
         />
@@ -37,7 +40,6 @@ const MainPage = () => {
           </p>
         </div>
 
-        {/* "hi" at Center Left */}
         <div className="absolute left-6 top-1/2 transform -translate-y-1/2">
           <p className="text-white text-7xl">{Hour}</p>
           <p className="text-white text-xl">{Weekend},{date}</p>
@@ -64,4 +66,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Page;
